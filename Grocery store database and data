@@ -1,0 +1,47 @@
+/** Store items
+Candles (8, 20, 3, no)
+Books (20, 40, 1, yes)
+Bookmarks (4, 30, 1, yes)
+Kindle (80, 4, 2, no)
+Earrings (20, 30, 4, yes)
+Bracelet (18, 10, 4, no)
+Rings (20, 12, 4, yes)
+Necklace (20, 20, 4, yes)
+Sweatshirts (35, 20, 2, yes)
+T-Shirts (15, 30, 2, yes)
+Sweatpants (35, 20, 2, yes)
+Coffe mug (10, 15, 3, yes)
+Socks (10, 20, 3, no)
+Beanies (15, 10, 3, yes)
+Stickers (3, 30, 1, yes)
+**/
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, aisle INTEGER, reordering TEXT); 
+
+INSERT INTO store VALUES (1, "Candles", 8, 20, 3, "no");
+INSERT INTO store VALUES (2, "Books", 20, 40, 1, "yes");
+INSERT INTO store VALUES (3, "Bookmarks", 4, 30, 1, "yes");
+INSERT INTO store VALUES (4, "Kindle", 80, 4, 2, "no");
+INSERT INTO store VALUES (5, "Earrings", 20, 30, 4, "yes");
+INSERT INTO store VALUES (6, "Bracelet", 18, 10, 4, "no");
+INSERT INTO store VALUES (7, "Rings", 20, 12, 4, "yes");
+INSERT INTO store VALUES (8, "Necklace", 20, 20, 4, "yes");
+INSERT INTO store VALUES (9, "Sweatshirts", 35, 20, 2, "yes");
+INSERT INTO store VALUES (10, "T-shirt", 15, 30, 2, "yes");
+INSERT INTO store VALUES (11, "Sweatpants", 35, 20, 2, "yes");
+INSERT INTO store VALUES (12, "Coffe mug", 10, 15, 3, "yes");
+INSERT INTO store VALUES (13, "Socks", 10, 20, 3, "no");
+INSERT INTO store VALUES (14, "Beanies", 15, 10, 3, "yes");
+INSERT INTO store VALUES (15, "Stickers", 3, 30, 1, "yes"); 
+
+-ordered items by price
+SELECT name, price FROM store ORDER BY price;  
+
+-what is the average price of items in aisle 2
+SELECT AVG(price) FROM store WHERE aisle=2;
+
+-what is the most expensive item in the store
+SELECT MAX(price) FROM store;
+
+-What items are being reordered
+SELECT name FROM store WHERE reordering="yes";
