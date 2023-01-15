@@ -1,0 +1,7 @@
+-Created a CTE and found the average popularity of artists. Then labeled all artists with an average popularity over 90 as 'Top Star'
+WITH tempTable AS (
+SELECT artist_name, AVG(popularity) AS average_popularity FROM Spotifydata
+GROUP BY artist_name)
+
+SELECT artist_name, average_popularity, 'Top Star' AS tag FROM tempTable
+WHERE average_popularity >=90
