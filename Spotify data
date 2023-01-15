@@ -5,3 +5,10 @@ GROUP BY artist_name)
 
 SELECT artist_name, average_popularity, 'Top Star' AS tag FROM tempTable
 WHERE average_popularity >=90
+
+-What are the top 10 most popular songs?
+SELECT artist_name, track_name, popularity FROM BIT_DB.Spotifydata
+ORDER BY popularity DESC
+LIMIT 10
+
+
