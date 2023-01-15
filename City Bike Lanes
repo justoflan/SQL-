@@ -1,0 +1,8 @@
+-Created a CTE, found the averag safety rating for each street, listed all streets with an average safety rating of 4 or higher as 'Safe Lane'. 
+WITH safety AS (
+SELECT street, AVG(safetyrating) AS avgsafetyrating FROM CityBikeLanes
+GROUP BY street
+ORDER BY avgsafetyrating)
+
+SELECT street, avgsafetyrating, 'Safe Lane' AS tag FROM safety
+WHERE avgsafetyrating >=4
