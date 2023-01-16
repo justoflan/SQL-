@@ -6,3 +6,13 @@ ORDER BY avgsafetyrating)
 
 SELECT street, avgsafetyrating, 'Safe Lane' AS tag FROM safety
 WHERE avgsafetyrating >=4
+
+-Combined a window function with CASE to label average safety ratings when there was more than one rating for each street. 
+SELECT street, safetyrating, AVG(safetyrating) OVER (PARTITION BY street) AS average_safety_rating, 
+CASE 
+    WHEN AVG(safetyrating) OVER (PARTITION BY safetyrating) >=4 THEN 'Leave As-is'
+    WHEN AVG(safetyrating) OVER (PARTITION BY safetyrating) <=2.5 THEN 'Remove'
+    ELSE 'Improvements Needed'
+END as recommendations
+FROM CityBikeLanes
+ORDER BY recommendations
