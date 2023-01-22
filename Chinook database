@@ -21,3 +21,9 @@ SELECT DISTINCT billingcountry FROM chinook.invoices
 SELECT emp.firstname, emp.lastname, inv.invoiceid FROM chinook.customers cust
 JOIN chinook.employees emp ON cust.supportrepid=emp.employeeid
 JOIN chinook.invoices inv ON cust.customerid=inv.customerid
+
+-What is the customer name, country, invoice total, and sales rep name for each customer?
+SELECT cust.firstname, cust.lastname, emp.firstname, emp.lastname, inv.invoiceid, inv.total, inv.billingcountry FROM chinook.customers cust
+JOIN chinook.employees emp ON cust.supportrepid=emp.employeeid
+JOIN chinook.invoices inv ON cust.customerid=inv.customerid
+
