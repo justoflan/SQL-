@@ -3,3 +3,9 @@ SELECT customerid, firstname, lastname, country FROM chinook.customers WHERE cou
 
 -What is the name and customer ID for each customer in Brazil?
 SELECT customerid, firstname, lastname, country FROM chinook.customers WHERE country = 'Brazil'
+
+-What is the full name, invoice ID, invoice date, and billing country for each customer in Brazil?
+SELECT firstname, lastname, invoiceid, invoicedate, billingcountry FROM chinook.customers cust
+LEFT JOIN chinook.invoices inv
+ON cust.customerid=inv.customerid
+WHERE billingcountry= 'Brazil' 
