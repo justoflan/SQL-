@@ -9,3 +9,15 @@ SELECT firstname, lastname, invoiceid, invoicedate, billingcountry FROM chinook.
 LEFT JOIN chinook.invoices inv
 ON cust.customerid=inv.customerid
 WHERE billingcountry= 'Brazil' 
+
+-What are the names of the employees who are Sales Agents? 
+SELECT firstname, lastname, title FROM chinook.employees 
+WHERE title LIKE '%Sales Support Agent%'
+
+-Which countries are our invoices coming from?
+SELECT DISTINCT billingcountry FROM chinook.invoices
+
+-Who is the sales rep associated with each invoice?
+SELECT emp.firstname, emp.lastname, inv.invoiceid FROM chinook.customers cust
+JOIN chinook.employees emp ON cust.supportrepid=emp.employeeid
+JOIN chinook.invoices inv ON cust.customerid=inv.customerid
