@@ -1,0 +1,5 @@
+What is the name, customer ID, and country of each customer not in the US?
+SELECT customerid, firstname, lastname, country FROM chinook.customers WHERE country <> 'USA' 
+
+-What is the name and customer ID for each customer in Brazil?
+SELECT customerid, firstname, lastname, country FROM chinook.customers WHERE country = 'Brazil'
