@@ -44,3 +44,9 @@ SELECT invitem.invoicelineid, track.name AS track_name, art.name AS artist FROM 
 JOIN chinook.tracks track ON invitem.trackid= track.trackid
 JOIN chinook.albums alb ON track.albumid=alb.AlbumId
 JOIN chinook.artists art ON alb.artistid=art.artistid;
+
+-What is the album title, track name, media type, and genre for each track?
+SELECT t.name AS track_name, alb.title AS album_title, med.name AS media_type, gen.name AS genre FROM chinook.tracks t
+JOIN chinook.albums alb ON t.albumid=alb.albumid
+JOIN chinook.media_types med ON t.mediatypeid=med.mediatypeid
+JOIN chinook.genres gen ON t.genreid=gen.genreid
