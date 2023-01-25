@@ -50,3 +50,11 @@ SELECT t.name AS track_name, alb.title AS album_title, med.name AS media_type, g
 JOIN chinook.albums alb ON t.albumid=alb.albumid
 JOIN chinook.media_types med ON t.mediatypeid=med.mediatypeid
 JOIN chinook.genres gen ON t.genreid=gen.genreid
+
+-What is the total sales for each sales support agent?
+SELECT e.firstname, e.lastname, e.title, ROUND(SUM(v.total), 2) AS sales_total FROM chinook.employees e
+JOIN chinook.customers c ON c.supportrepid=e.employeeid
+JOIN chinook.invoices v ON v.customerid=c.customerid
+WHERE title LIKE '%Sales Support Agent%'
+GROUP BY e.firstname
+
