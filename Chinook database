@@ -58,3 +58,14 @@ JOIN chinook.invoices v ON v.customerid=c.customerid
 WHERE title LIKE '%Sales Support Agent%'
 GROUP BY e.firstname
 
+-Which sales support agent made the most money in 2009?
+SELECT e.firstname, e.lastname, e.title, ROUND(SUM(v.total), 2) AS sales_total FROM chinook.employees e
+JOIN chinook.customers c ON c.supportrepid=e.employeeid
+JOIN chinook.invoices v ON v.customerid=c.customerid
+WHERE title LIKE '%Sales Support Agent%'
+AND v.invoicedate LIKE '%2009%'
+GROUP BY e.firstname 
+ORDER BY ROUND(SUM(v.total), 2)
+DESC LIMIT 1 
+
+
