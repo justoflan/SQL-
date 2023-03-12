@@ -41,3 +41,8 @@ ON t.show_id=p.show_id
 WHERE p.cast LIKE '%Denzel Washington%'
 ORDER BY t.title;
 
+-Select all rows for productions where the director is Mike Flanagan. 
+SELECT * FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" t
+JOIN "CharlotteChaze/BreakIntoTech"."netflix_people" p
+ON t.show_id=p.show_id
+WHERE director LIKE '%Mike Flanagan%'; 
