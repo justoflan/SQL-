@@ -16,8 +16,9 @@ WHERE LENGTH (orderid) = 6
 AND orderid <>'Order ID';
 
 -What is the price of the cheapest product sold in January?
-SELECT distinct price, product FROM BIT_DB.JanSales
-WHERE price IN (SELECT min(price) FROM BIT_DB.JanSales);
+SELECT product, MIN(price) FROM BIT_DB.JanSales 
+WHERE LENGTH (orderid) = 6
+AND orderid <>'Order ID';
 
 -What is the total revenue per product in January? 
 SELECT product, sum(quantity)*price as revenue FROM BIT_DB.JanSales
