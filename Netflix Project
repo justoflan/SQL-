@@ -33,3 +33,11 @@ LIMIT 1;
 -When was the most recent data added?
 SELECT max(date(date_added))
 FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info";
+
+-What is the type and title of every production that Denzel Washington has been in? 
+SELECT t.type, t.title, p.cast FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" t
+JOIN "CharlotteChaze/BreakIntoTech"."netflix_people" p 
+ON t.show_id=p.show_id
+WHERE p.cast LIKE '%Denzel Washington%'
+ORDER BY t.title;
+
