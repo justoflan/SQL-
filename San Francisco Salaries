@@ -15,3 +15,8 @@ SELECT jobtitle, basepay, benefits, totalpay, status FROM database.salaries
 WHERE BasePay <> 'Not Provided'
 AND status = 'PT'
 ORDER BY totalpay DESC;
+
+How has average benefits changed from year to year?
+SELECT year, ROUND(AVG(benefits),1) FROM database.salaries
+WHERE BasePay <> 'Not Provided'
+GROUP BY year;
