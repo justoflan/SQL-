@@ -20,3 +20,6 @@ How has average benefits changed from year to year?
 SELECT year, ROUND(AVG(benefits),1) FROM database.salaries
 WHERE BasePay <> 'Not Provided'
 GROUP BY year;
+
+How many distinct job titles are in the database? 
+SELECT DISTINCT COUNT(jobtitle) FROM database.salaries;
