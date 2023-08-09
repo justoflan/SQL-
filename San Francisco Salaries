@@ -1,0 +1,17 @@
+Identified the average total pay per year. 
+SELECT year, ROUND(AVG(totalpay),1) AS average_pay
+FROM database.salaries
+WHERE BasePay <> 'Not Provided'
+GROUP BY year; 
+
+Identified the highest paying full time job by total pay. 
+SELECT jobtitle, basepay, benefits, totalpay, status FROM database.salaries
+WHERE BasePay <> 'Not Provided'
+AND status = 'FT'
+ORDER BY totalpay DESC;
+
+Identified the highest paying part time job by total pay. 
+SELECT jobtitle, basepay, benefits, totalpay, status FROM database.salaries
+WHERE BasePay <> 'Not Provided'
+AND status = 'PT'
+ORDER BY totalpay DESC;
