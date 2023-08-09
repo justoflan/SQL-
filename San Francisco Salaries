@@ -21,6 +21,5 @@ SELECT year, ROUND(AVG(benefits),1) FROM database.salaries
 WHERE BasePay <> 'Not Provided'
 GROUP BY year;
 
-How many distinct job titles are in the database for each year?  
-SELECT DISTINCT COUNT(jobtitle), year FROM database.salaries
-GROUP BY year;
+How many job titles are there in the database in total and how many unique job titles are there?
+SELECT COUNT(DISTINCT (jobtitle)) AS Unique_jobs, COUNT(jobtitle) AS Total_Jobs  FROM database.salaries;
